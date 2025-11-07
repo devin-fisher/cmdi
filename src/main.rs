@@ -33,6 +33,8 @@ use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::pattern::PatternEncoder;
 
+const DEMO_YAML: &str = include_str!("../src/opencli/demo-kubectl.yaml");
+
 fn main() -> color_eyre::Result<()> {
     let logfile = FileAppender::builder()
         .encoder(Box::new(PatternEncoder::new("{d} [{l}] {m}{n}")))
@@ -74,11 +76,7 @@ fn main() -> color_eyre::Result<()> {
         cli.cmd
     );
 
-    let str = std::fs::read_to_string(
-        "./src/opencli/demo-kubectl.yaml",
-    )?;
-
-    let parsed: V0_1 = serde_yml::from_str(&str)?;
+    let parsed: V0_1 = serde_yml::from_str(DEMO_YAML)?;
 
     // TODO trap SIGTERM see signal-hook
     // Add panic hook
