@@ -1,0 +1,43 @@
+_version: 2
+
+headings:
+  details:
+    en: Details
+    es: Detalles
+  
+  doc:
+    en: Doc
+    es: Doc
+
+action_hints:
+  quit:
+    en: Quit
+    es: Salir
+
+  help:
+    en: Help
+    es: Ayuda
+
+  edit:
+    en: Edit
+    es: Editar
+
+  insert_option:
+    en: Insert Option/Flag
+    es: Insertar Opción/Bandera
+
+  insert_argument:
+    en: Insert Argument
+    es: Insertar argumento
+
+  insert_command:
+    en: Insert Command
+    es: Insertar Comando
+
+  lookup_arguments:
+    en: Lookup Arguments
+    es: Buscar Argumentos
+
+  remove:
+    en: Remove
+    es: Eliminar

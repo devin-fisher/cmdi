@@ -1,0 +1,63 @@
+---
+"$schema": https://json-schema.org/draft/2020-12/schema
+"$id": OpenCLI_kubectl.json
+opencli: '0.1'
+info:
+  title: kubectl
+  version: 1.29.0
+  summary: Command-line tool for controlling Kubernetes clusters
+  description: kubectl controls Kubernetes clusters. You can deploy applications,
+    inspect and manage cluster resources, and view logs.
+  contact:
+    name: Kubernetes Contributors
+    url: https://kubernetes.io/docs/reference/kubectl/
+    email: kubernetes-dev@googlegroups.com
+  license:
+    name: Apache License 2.0
+    identifier: Apache-2.0
+conventions:
+  groupOptions: true
+  optionSeparator: " "
+options:
+  - name: "--kubeconfig"
+    description: Path to the kubeconfig file to use
+  - name: "--context"
+    description: The name of the kubeconfig context to use
+commands:
+  - name: get
+    description: Display one or many resources
+    arguments:
+      - name: resource
+        required: true
+        description: The RESOURCE type argument tells kubectl get what kind of Kubernetes objects to get (list and/or describe), such as pods, services, or deployments.
+      - name: name
+        required: false
+    options:
+      - name: "--namespace"
+        description: If present, the namespace scope for this CLI request
+        arguments:
+          - name: "NAMESPACE"
+            description: the namespace scope for this CLI request
+      - name: "--output"
+        aliases:
+          - "-o"
+        description: 'Output format. One of: json|yaml|wide'
+  - name: apply
+    description: Apply a configuration to a resource by filename or stdin
+    options:
+      - name: "-f"
+        description: Filename or directory to apply
+        required: true
+  - name: delete
+    description: Delete resources by filenames, stdin, resources and names, or by label
+      selector
+    arguments:
+      - name: resource
+        required: true
+      - name: name
+        required: false
+examples:
+  - kubectl get pods
+  - kubectl apply -f deployment.yaml
+  - kubectl delete pod nginx
+interactive: false
